@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Test Run`,
+    title: `DeveloPanda`,
     author: `Eyad Kobatte`,
     description: `A blog by Eyad Kobatte for documenting anything interesting in web development`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `eyadkobatte`,
+      github: `eyadkobatte`
     },
   },
   plugins: [
@@ -63,7 +64,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/eyad-logo.png`,
       },
     },
     `gatsby-plugin-offline`,

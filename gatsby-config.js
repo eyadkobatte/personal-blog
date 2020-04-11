@@ -51,15 +51,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-128187782-2`,
       },
     },
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Developanda',
-        short_name: 'Developanda',
+        name: 'DeveloPanda',
+        short_name: 'DeveloPanda',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',

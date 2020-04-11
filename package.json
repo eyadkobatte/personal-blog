@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "developanda",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Developanda: Web Dev Blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Eyad Kobatte <ekobatte96@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/eyadkobatte/personal-blog/issues"
   },
   "dependencies": {
     "gatsby": "^2.20.17",
@@ -36,7 +36,7 @@
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/eyadkobatte/personal-blog#readme",
   "keywords": [
     "gatsby"
   ],
@@ -44,7 +44,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/eyadkobatte/personal-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -59,6 +59,7 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",

@@ -5,7 +5,6 @@ import { rhythm, scale } from '../utils/typography';
 
 function Layout(props) {
   const { location, title, children } = props;
-  // eslint-disable-next-line no-undef
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 

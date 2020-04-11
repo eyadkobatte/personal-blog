@@ -2,11 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `DeveloPanda`,
     author: `Eyad Kobatte`,
-    description: `A blog by Eyad Kobatte for documenting anything interesting in web development`,
+    description: `A blog by Eyad Kobatte`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `eyadkobatte`,
-      github: `eyadkobatte`
+      github: `eyadkobatte`,
     },
   },
   plugins: [
@@ -58,8 +58,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Developanda`,
+        short_name: `Developanda`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -76,4 +76,4 @@ module.exports = {
       },
     },
   ],
-}
+};

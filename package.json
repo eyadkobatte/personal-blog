@@ -4,6 +4,10 @@
   "description": "DeveloPanda: Web Dev Blog",
   "version": "0.1.0",
   "author": "Eyad Kobatte <ekobatte96@gmail.com>",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
   "bugs": {
     "url": "https://github.com/eyadkobatte/personal-blog/issues"
   },

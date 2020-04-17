@@ -11,7 +11,7 @@ Fortunately, I had the privilege of learning to write tests recently. When I lea
 
 I faced this issue recently where we are using destructured imports in our node.js file and stubbing a few HTTP methods. All our stubs failed and our tests started making HTTP calls to actual APIs. I ran down this path of trying to google what was going wrong yet no results could be found. What I learnt from here mainly applies to testing but its applications could be anywhere we want to reuse a module/package instead of creating new instances of a package
 
-We are using [got](https://www.npmjs.com/package/got) as a HTTP library in our node.js backend. Got has been designed in such a way where the specific methods that are needed can be destructured and imported so we do not import the whole package. Nice!!
+We are using [got](https://www.npmjs.com/package/got) as a HTTP library in our node.js backend. `GOT` has been designed in such a way where the specific methods that are needed can be destructured and imported so we do not import the whole package. Nice!!
 
 ```javascript
 // lib/func/index.js
@@ -50,11 +50,11 @@ describe('Test API Calls', function (done) {
 
 You can see that we stub the get function from the got package. We would now expect our test to not actually make a HTTP call to the API specified in the code.
 
-Sadly, this is not what happens. In the `lib/func/index.js` file when we write `const { get } = require('got')`, we get a new instance of the get module from got. This is not the same instance as the one that is stubbed. So at this point, we have 2 get methods, one in the test file (The stubbed value) and one in our function (Not the stubbed value).
+Sadly, this is not what happens. In the `lib/func/index.js` file when we write `const { get } = require('got')`, we get a new instance of the get module from `GOT`. This is not the same instance as the one that is stubbed. So at this point, we have 2 get methods, one in the test file (The stubbed value) and one in our function (Not the stubbed value).
 
 When we destructure an import, we effectively imported a new instance of the get module that is not tied to the stub that we created. This means that the test will actually hit the API and get actual data. (Big no no)
 
-To fix this problem, We import got as a whole library and use the modules from the got package without destructuring. Small sacrifice for a bigger win.
+To fix this problem, We import `GOT` as a whole library and use the modules from the `GOT` package without destructuring. Small sacrifice for a bigger win.
 
 ## How we temporarily fixed this problem
 
@@ -88,8 +88,8 @@ describe('Test API Calls', function (done) {
 });
 ```
 
-This fixed the problem for a while till we had a lot of proxyquires that were not actually needed. This was not the best way to go about it as we are now mocking our dependencies instead of fixing a problem
+This fixed the problem for a while till we ended up using `PROXYQUIRE` everywhere, even when it is not actually needed. This is not the best way to go about it as we are now mocking our dependencies instead of fixing a problem
 
 This was like fixing a leak in a pipe by applying duct tape till there were leaks everywhere and we were left with more of duct tape than pipe.
 
-In the end, we steered clear of proxyquire and stopped destructuring imports for the `got` package
+In the end, we steered clear of proxyquire and stopped destructuring imports for the `GOT` package

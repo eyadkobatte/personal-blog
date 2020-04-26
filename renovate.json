@@ -2,11 +2,11 @@
   "extends": [
     "config:base",
     ":assignee(eyadkobatte)",
-    ":labels(dependencies)",
     "schedule:weekends",
     "group:recommended",
     "group:monorepos"
   ],
+  "labels": ["dependencies"],
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],

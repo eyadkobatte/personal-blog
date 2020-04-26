@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "config:base",
+    ":assignee(eyadkobatte)",
+    ":labels(dependencies)",
+    "schedule:weekly",
+    "group:recommended",
+    "group:monorepos"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
+}

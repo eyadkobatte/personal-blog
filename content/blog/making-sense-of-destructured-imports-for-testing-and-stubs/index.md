@@ -3,6 +3,16 @@ title: Making sense of destructured imports for testing and stubs
 date: '2020-04-16T13:39:58.233Z'
 ---
 
+## Edit
+
+This article has been edited with the following
+
+Previously, I wrote that we would be getting new instances of a function when we destructure an import.
+
+But in reality, we create a local variable that will not be reflected with newer changes when we destructure an import.
+
+---
+
 Testing is an immensely useful skill to have in your utility belt.
 
 ![Batman Utility Belt](./batman_utility_belt.gif)

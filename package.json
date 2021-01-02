@@ -60,7 +60,7 @@
     "lint": "eslint --ignore-path .gitignore --fix \"**/*.js\""
   },
   "devDependencies": {
-    "eslint": "7.16.0",
+    "eslint": "7.17.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "6.15.0",
     "eslint-config-react-app": "5.2.1",

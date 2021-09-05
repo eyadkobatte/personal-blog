@@ -58,7 +58,7 @@ function Bio() {
                 Follow me on Twitter
               </a>
               &nbsp;or&nbsp;
-              <a href={`https://github.com/%${social.github}`}>
+              <a href={`https://github.com/${social.github}`}>
                 Check out my github
               </a>
             </p>

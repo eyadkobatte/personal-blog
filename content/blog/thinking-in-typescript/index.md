@@ -9,7 +9,7 @@ This is an evergrowing series of collections of my thoughts and observations fro
 
 ## <a name="shorthand-initialisation-of-constructor-with-keyword-arguments"></a>Shorthand Initialisation of Constructor With Keyword Arguments
 
-Typescript offers a handy shorthand when setting up constructors for classes, allowing us to skip rewriting the same fields 3 times and letting us only declare them in the constructor.
+Typescript offers a handy shorthand when setting up constructors for classes, allowing us to skip rewriting the same fields 3 times and letting us only declare them in the constructor. [Documentation here](https://www.typescriptlang.org/docs/handbook/2/classes.html#parameter-properties)
 
 ```typescript
 class Person {
@@ -17,7 +17,7 @@ class Person {
 }
 ```
 
-The above snippet is the shorthand for writing the below.
+The above snippet is the same as writing
 
 ```typescript
 class Person {
@@ -31,17 +31,17 @@ class Person {
 }
 ```
 
-In the first example, we declare 2 private members (`firstName` & `lastName`), the constructor is set up in with the 2 arguments, and also the value from the constructor is saved to the class members, all in one line.
+In the first example, we declare 2 private members (`firstName` & `lastName`), the constructor is set up with the 2 arguments, and also the value from the constructor is assigned to the class members, all in one line.
 
-We saved rewriting the fields 2 more times with this shorthand. Very handy!
+We saved rewriting the fields 2 more times with this shorthand. Very handy when working with multiple number of arguments in a single class.
 
-But, this only works for positional based constructors. So initalising an object with this class means, the arguments have to be passed in the right order.
+But, this only works for positional based arguments in constructors. So initalising an object with this class means, the arguments have to be passed in the right order.
 
 ```typescript
 const person = new Person('First', 'Last');
 ```
 
-This works very well for classes with a minimal number of arguments, but this can quickly start getting out of hand. Lets assume a complex application that has the `Person` class but a lot more fields are being used
+This works very well for classes with a minimal number of arguments, but this can quickly start getting out of hand. Lets assume a complex application that has the `Person` class but a lot more class members.
 
 ```typescript
 class Person {
@@ -57,11 +57,9 @@ class Person {
 }
 ```
 
-This is definitely a contrived example, but the issue still exists with bigger scale applications. Positional arguments are error prone and can cause issues even with type checking from TypeScript.
+This is definitely a contrived example, but the issue still exists with bigger scale applications. Positional arguments are error prone and can be a cause for issues.
 
-The obvious answer to this is keyword arguments by passing an object to the constructor rather than individual arguments.
-
-But the shorthand is not available anymore (yet!). So we are back to this
+We can solve this by using named arguments in the constructor instead. But the shorthand is not available anymore (yet!). So we are back to individually declaring the members, passing them to the constructor, and also assigning them all by ourselves.
 
 ```typescript
 interface PersonType {
@@ -70,7 +68,7 @@ interface PersonType {
   address: Address;
   phone: number;
   email: string;
-  designation: Designation;
+  designation: string;
   personalDetails: Personal;
 }
 
@@ -80,7 +78,7 @@ class Person {
   address: Address;
   phone: number;
   email: string;
-  designation: Designation;
+  designation: string;
   personalDetails: Personal;
 
   constructor(args: PersonType) {
@@ -95,7 +93,7 @@ class Person {
 }
 ```
 
-This starts getting messy easily and can get a bit difficult to maintain as we now have another interface as well. Furthermore, adding new fields to the interface, means adding 2 lines in the constructor and the class member declaration.
+This starts getting messy easily and can get a bit difficult to maintain as we now have multiple sources of truth as well. Furthermore, adding new fields to the interface, means adding 2 lines in the constructor and the class member declaration.
 
 What we can do now is use the concept of declaration merging.
 
@@ -106,7 +104,7 @@ interface PersonType {
   address: Address;
   phone: number;
   email: string;
-  designation: Designation;
+  designation: string;
   personalDetails: Personal;
 }
 
@@ -125,11 +123,11 @@ class Person {
 }
 ```
 
-As you can see, we now have made declaring members in the class redundant. We can say the interface `Person` extends `PersonType`. So we now have an interface with the same name as the class that has all the fields that will be used in the class. We now merge the interface with a class by creating a class with the same name.
+Merging the interface `Person` with the class `Person` has made declaration of the members redundant because the interface `Person` extends `PersonType`.
 
-There is still another issue. Adding a new field to the interface would mean we still have to set the variable in the constructor to initialise the value. We can use a bit more code to make that easier for us.
+There is still another issue. Adding a new field to the interface would mean we still have to initialise the class member in the constructor. We can use a bit more code to make things easier.
 
-By only changing the constructor, we can assign all fields that come to the constructor to the class members
+By only changing the constructor implementation, we can assign all fields that come to the constructor to the class members.
 
 ```typescript
 interface PersonType {
@@ -138,7 +136,7 @@ interface PersonType {
   address: Address;
   phone: number;
   email: string;
-  designation: Designation;
+  designation: string;
   personalDetails: Personal;
 }
 
@@ -151,7 +149,6 @@ class Person {
 }
 ```
 
-We have solved our 2 problems
+This solves the issue of extending the interface and having one single source of truth.
 
-1. Writing fields again and again.
-2. Extending this class out for updates requires updating only the interface
+We now do not have write the same fields again in multiple places, and extending the class out for updates or maintenance requires updating only the interface

@@ -90,8 +90,6 @@ module.exports = {
           respectDNT: true,
           // Avoids sending pageview hits from custom paths
           exclude: ['/preview/**'],
-          // Defaults to https://www.googletagmanager.com
-          origin: 'YOUR_SELF_HOSTED_ORIGIN',
         },
       },
     },

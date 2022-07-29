@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { rhythm } from '../utils/typography';
 
 const bioQuery = graphql`
@@ -50,15 +51,14 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong>. I am a web developer based
-              in Bangalore, India.{' '}
-              <a href={`https://twitter.com/${social.twitter}`}>
+              Written by <strong>{author}</strong>.{' '}
+              <OutboundLink href={`https://twitter.com/${social.twitter}`}>
                 Follow me on Twitter
-              </a>
+              </OutboundLink>
               &nbsp;or&nbsp;
-              <a href={`https://github.com/${social.github}`}>
+              <OutboundLink href={`https://github.com/${social.github}`}>
                 Check out my github
-              </a>
+              </OutboundLink>
             </p>
           </div>
         );

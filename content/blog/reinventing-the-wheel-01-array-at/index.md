@@ -118,3 +118,9 @@ const assertions = () => {
 
 assertions();
 ```
+
+#### Retrospective
+
+The functionality of the function is pretty simple and minimal. Quite a good start to understand how polyfills work to allow compatibility of newer features in older systems.
+
+[Here is a rough polyfill from the proposal](https://github.com/tc39/proposal-relative-indexing-method#polyfill) that has a much more clever solution.

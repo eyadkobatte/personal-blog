@@ -1,16 +1,14 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
-
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { rhythm } from '../utils/typography';
 
 const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 50)
       }
     }
     site {
@@ -38,29 +36,29 @@ function Bio() {
               marginBottom: rhythm(2.5),
             }}
           >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
+            <GatsbyImage
+              image={data.avatar.childImageSharp.gatsbyImageData}
               alt={author}
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
                 minWidth: 50,
                 borderRadius: `100%`,
+                height: 50,
               }}
               imgStyle={{
                 borderRadius: `50%`,
               }}
             />
             <p>
-              Written by <strong>{author}</strong>. I am a web developer based
-              in Bangalore, India.{' '}
-              <a href={`https://twitter.com/${social.twitter}`}>
+              Written by <strong>{author}</strong>.{' '}
+              <OutboundLink href={`https://twitter.com/${social.twitter}`}>
                 Follow me on Twitter
-              </a>
+              </OutboundLink>
               &nbsp;or&nbsp;
-              <a href={`https://github.com/${social.github}`}>
+              <OutboundLink href={`https://github.com/${social.github}`}>
                 Check out my github
-              </a>
+              </OutboundLink>
             </p>
           </div>
         );
